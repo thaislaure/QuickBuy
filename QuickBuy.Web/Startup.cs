@@ -10,6 +10,12 @@ namespace QuickBuy.Web
 {
     public class Startup
     {
+
+
+       /// <summary>
+       ///teste git
+       /// </summary>
+       /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
