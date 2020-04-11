@@ -33,7 +33,7 @@ namespace QuickBuy.Web
             services.AddControllersWithViews();
             var connectionString = Configuration.GetConnectionString("QuickBuyDB");
             services.AddDbContext<QuickBuyContexto>(option =>
-                                                    option.UseLazyLoadingProxies()
+                                                     option.UseLazyLoadingProxies()
                                                     .UseSqlServer(connectionString, 
                                                                   m => m.MigrationsAssembly("QuickBuy.Repositorio")));
            

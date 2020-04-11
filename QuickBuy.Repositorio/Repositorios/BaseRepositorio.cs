@@ -1,19 +1,22 @@
 ﻿using QuickBuy.Dominio.Contratos;
+using QuickBuy.Repositorio.Contexto;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuickBuy.Repositorio.Repositorios
 {
     public class BaseRepositorio<TEntidy> : IBaseRepositorio<TEntidy> where TEntidy : class
     {
 
-        public BaseRepositorio()
+        private readonly QuickBuyContexto _quickBuyContexto;
+        public BaseRepositorio(QuickBuyContexto quickBuyContexto)
         {
-
+            _quickBuyContexto = quickBuyContexto;
         }
 
         public void Adicionar(TEntidy entidy)
         {
-            throw new System.NotImplementedException();
+            _quickBuyContexto.Set<TEntidy>().Add(entidy);
         }
 
         public void Atualizar(TEntidy entidy)
@@ -28,7 +31,7 @@ namespace QuickBuy.Repositorio.Repositorios
 
         public IEnumerable<TEntidy> ObterTodos()
         {
-            throw new System.NotImplementedException();
+            return _quickBuyContexto.Set<TEntidy>().ToList();
         }
 
         public void Remover(TEntidy entidy)
