@@ -8,40 +8,43 @@ namespace QuickBuy.Repositorio.Repositorios
     public class BaseRepositorio<TEntidy> : IBaseRepositorio<TEntidy> where TEntidy : class
     {
 
-        private readonly QuickBuyContexto _quickBuyContexto;
+        protected readonly QuickBuyContexto QuickBuyContexto;
         public BaseRepositorio(QuickBuyContexto quickBuyContexto)
         {
-            _quickBuyContexto = quickBuyContexto;
+            QuickBuyContexto = quickBuyContexto;
         }
 
         public void Adicionar(TEntidy entidy)
         {
-            _quickBuyContexto.Set<TEntidy>().Add(entidy);
+            QuickBuyContexto.Set<TEntidy>().Add(entidy);
+            QuickBuyContexto.SaveChanges();
         }
 
         public void Atualizar(TEntidy entidy)
         {
-            throw new System.NotImplementedException();
+            QuickBuyContexto.Set<TEntidy>().Update(entidy);
+            QuickBuyContexto.SaveChanges();
         }
 
         public TEntidy ObterPorId(int id)
         {
-            throw new System.NotImplementedException();
+            return QuickBuyContexto.Set<TEntidy>().Find(id);
         }
 
         public IEnumerable<TEntidy> ObterTodos()
         {
-            return _quickBuyContexto.Set<TEntidy>().ToList();
+            return QuickBuyContexto.Set<TEntidy>().ToList();
         }
 
         public void Remover(TEntidy entidy)
         {
-            throw new System.NotImplementedException();
+            QuickBuyContexto.Remove(entidy);
+            QuickBuyContexto.SaveChanges();
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            QuickBuyContexto.Dispose();
         }
     }
 }
