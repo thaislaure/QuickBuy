@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gmkUwR0+V/OQknyHcwv1QApMVZpjY+x87maXhNmB06ZVpuxEy5To9Ie7YdGRaAgFfumfVXlfmaJw9QXoIyynMA==",
+  "dgSpecHash": "x4uai3olpcLeJZe+Trfu+HnhqUKihS6ZzQnsgou3RUj42HziNaYCjzrQk6O1kZ/+onZn7k106CSnu1ktdWsZvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\thais\\source\\repos\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj",
+  "projectFilePath": "D:\\repositorio\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thais\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\thais\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
