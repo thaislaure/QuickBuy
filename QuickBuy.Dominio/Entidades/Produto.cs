@@ -5,18 +5,18 @@
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-
         public decimal Preco { get; set; }
+
+        public string NomeArquivo { get; set; }
 
         public override void Validate()
         {
-            LimparMenagensValidacao();
-
             if (string.IsNullOrEmpty(Nome))
-                AdicionarCritica("Nome não foi informado");
+                AdicionarCritica("Nome do produto não foi informado");
 
             if (string.IsNullOrEmpty(Descricao))
-                AdicionarCritica("Descricao não foi informado ");
+                AdicionarCritica("Descrição não foi informado");
+
         }
     }
 }

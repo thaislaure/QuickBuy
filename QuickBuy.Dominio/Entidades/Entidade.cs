@@ -11,23 +11,24 @@ namespace QuickBuy.Dominio.Entidades
             get { return _mensagensValidacao ?? (_mensagensValidacao = new List<string>()); }
         }
 
-        protected void LimparMenagensValidacao()
+        protected void LimparMensagensValidacao()
         {
             mensagemValidacao.Clear();
-        }
+        }   
 
         protected void AdicionarCritica(string mensagem)
         {
             mensagemValidacao.Add(mensagem);
         }
 
+        public string ObterMensagensValidacao()
+        {
+            return string.Join(". ", mensagemValidacao);
+        }
         public abstract void Validate();
-
-        protected bool EhValido
+        public bool EhValido
         {
             get { return !mensagemValidacao.Any(); }
         }
-
-
     }
 }

@@ -1,44 +1,46 @@
-﻿using QuickBuy.Dominio.Contratos;
-using QuickBuy.Repositorio.Contexto;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using QuickBuy.Dominio.Contratos;
+using QuickBuy.Repositorio.Contexto;
 
 namespace QuickBuy.Repositorio.Repositorios
 {
-    public class BaseRepositorio<TEntidy> : IBaseRepositorio<TEntidy> where TEntidy : class
+    public class BaseRepositorio<TEntity> : IBaseRepositorio<TEntity> where TEntity : class
     {
 
         protected readonly QuickBuyContexto QuickBuyContexto;
+
+               
         public BaseRepositorio(QuickBuyContexto quickBuyContexto)
         {
             QuickBuyContexto = quickBuyContexto;
         }
 
-        public void Adicionar(TEntidy entidy)
+        public void Adicionar(TEntity entity)
         {
-            QuickBuyContexto.Set<TEntidy>().Add(entidy);
+            QuickBuyContexto.Set<TEntity>().Add(entity);
             QuickBuyContexto.SaveChanges();
         }
 
-        public void Atualizar(TEntidy entidy)
+        public void Atualizar(TEntity entity)
         {
-            QuickBuyContexto.Set<TEntidy>().Update(entidy);
+            QuickBuyContexto.Set<TEntity>().Update(entity);
             QuickBuyContexto.SaveChanges();
         }
-
-        public TEntidy ObterPorId(int id)
+        
+        public TEntity ObterPorId(int id)
         {
-            return QuickBuyContexto.Set<TEntidy>().Find(id);
+            return QuickBuyContexto.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<TEntidy> ObterTodos()
+        public IEnumerable<TEntity> ObterTodos()
         {
-            return QuickBuyContexto.Set<TEntidy>().ToList();
+            return QuickBuyContexto.Set<TEntity>().ToList();
         }
 
-        public void Remover(TEntidy entidy)
+        public void Remover(TEntity entity)
         {
-            QuickBuyContexto.Remove(entidy);
+            QuickBuyContexto.Remove(entity);
             QuickBuyContexto.SaveChanges();
         }
 

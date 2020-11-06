@@ -22,7 +22,7 @@ namespace QuickBuy.Repositorio.Config
                 .IsRequired()
                 .HasMaxLength(50);
             builder
-                .Property(u => u.Sobrenome)
+                .Property(u => u.SobreNome)
                 .IsRequired()
                 .HasMaxLength(50);
 

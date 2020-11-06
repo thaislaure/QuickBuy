@@ -8,7 +8,9 @@ namespace QuickBuy.Dominio.Entidades
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Nome { get; set; }
-        public string Sobrenome { get; set; }
+        public string SobreNome { get; set; }
+        public bool EhAdministrador { get; set; }
+
         /// <summary>
         /// Um Usuario Pode ter nenhum ou muitos pedidos
         /// </summary>
@@ -16,13 +18,11 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            LimparMenagensValidacao();
-
             if (string.IsNullOrEmpty(Email))
-                AdicionarCritica("E-mail não foi informado");
+                AdicionarCritica("Email não foi informado");
 
             if (string.IsNullOrEmpty(Senha))
-                AdicionarCritica("Senha não foi informado ");
+                AdicionarCritica("Senha não foi informado");
         }
     }
 }
